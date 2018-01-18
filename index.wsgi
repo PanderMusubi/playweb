@@ -39,9 +39,9 @@ def playweb_app(environ, start_response):
     for fname in sorted(listdir('sounds')):
         if fname.endswith('.mp3'):
             html += '''
-<form action="index.wsgi" method="post" class="ui-filterable">
+<form action="." method="post" class="ui-filterable">
 <input data-theme="b" value="{}" type="submit" />
-</form>'''.format(fname)
+</form>'''.format(fname[:-4])
 
     html += '''
 </div><!-- /word -->
