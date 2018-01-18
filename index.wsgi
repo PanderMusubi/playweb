@@ -3,7 +3,7 @@
 from wsgiref.simple_server import make_server
 from webob import Request
 from cgi import escape
-import os
+from os import listdir
 
 
 def playweb_app(environ, start_response):
@@ -36,17 +36,12 @@ def playweb_app(environ, start_response):
 #        word = unicode(req.params.get('name', 'default')).encode('utf-8') ## escape(...)
         word = req.params.get('word', '').strip() #TODO get value from value from submit
 
-    html += '<form action="index.wsgi" method="post" class="ui-filterable">'
-    html += '<input data-theme="b" value="Play 1" type="submit" />'
-    html += '</form>'
-
-    html += '<form action="index.wsgi" method="post" class="ui-filterable">'
-    html += '<input data-theme="b" value="Play 2" type="submit" />'
-    html += '</form>'
-
-    html += '<form action="index.wsgi" method="post" class="ui-filterable">'
-    html += '<input data-theme="b" value="Play 3" type="submit" />'
-    html += '</form>'
+    for fname in sorted(listdir('sounds')):
+        if fname.endswith('.mp3'):
+            html += '''
+<form action="index.wsgi" method="post" class="ui-filterable">
+<input data-theme="b" value="{}" type="submit" />
+</form>'''.format(fname)
 
     html += '''
 </div><!-- /word -->

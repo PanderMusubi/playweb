@@ -34,7 +34,7 @@ From http://jquerymobile.com/download/ download the zip file:
     unzip jquery.mobile-1.4.5.zip
     rm -rf jquery.mobile-1.4.5.zip demos
 
-As the non-minimized files are not used, also remove those too:
+As the non-minimized files are not used, remove those too:
 
     rm -rf jquery.mobile-1.4.5.css \
     jquery.mobile-1.4.5.js \
