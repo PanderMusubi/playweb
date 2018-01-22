@@ -1,6 +1,6 @@
 # Playweb
 
-Play audio om remote device via web interface
+Play audio file exists on a remote device via a web interface.
 
 
 ## Python
