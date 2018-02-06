@@ -34,14 +34,15 @@ def playweb_app(environ, start_response):
     if environ['REQUEST_METHOD'] == 'POST':
         req = Request(environ)
 #        word = unicode(req.params.get('name', 'default')).encode('utf-8') ## escape(...)
-        word = req.params.get('word', '').strip() #TODO get value from value from submit
+        word = req.params.get('sound', '').strip() #TODO get value from value from submit
+        print(word)
 
     for fname in sorted(listdir('sounds')):
-        if fname.endswith('.mp3'):
+        if fname.endswith('.wav') or fname.endswith('.ogg'):
             html += '''
 <form action="." method="post" class="ui-filterable">
-<input data-theme="b" value="{}" type="submit" />
-</form>'''.format(fname[:-4])
+<input data-theme="b" value="{}" type="submit" name="sound"/>
+</form>'''.format(fname)
 
     html += '''
 </div><!-- /word -->
