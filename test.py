@@ -24,3 +24,8 @@ channel = sound.play()
 sleep(length)
 #while channel.get_busy(): 
 #    time.Clock().tick(10)
+
+
+# serach for alternative than pygame, because that results in
+#ALSA lib pcm.c:8424:(snd_pcm_recover) underrun occurred
+# where known mitigations to the OS do not solve that issue
