@@ -16,19 +16,11 @@ def playweb_app(environ, start_response):
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Playweb</title>
-    <link rel="stylesheet" href="jquery.mobile-1.4.5.min.css">
     <link rel="icon" href="favicon.ico" />
-    <script src="jquery-3.2.1.min.js"></script>
-    <script src="jquery.mobile-1.4.5.min.js"></script>
 </head>
 <body style="font-variant-ligatures: none;"><!--TODO ligaturen uitzetten -->
-<div data-role="page">
-<div data-role="header" class="jqm-header">
     <!--h1>Playweb</h1-->
-</div><!-- /header -->
 
-<div role="main" class="ui-content jqm-content">
-<div id="word" class="ui-body-d ui-content">
 '''
     word = ''
     if environ['REQUEST_METHOD'] == 'POST':
@@ -45,9 +37,6 @@ def playweb_app(environ, start_response):
 </form>'''.format(fname)
 
     html += '''
-</div><!-- /word -->
-</div><!-- /main -->
-</div><!-- /page -->
 </body>
 </html>'''
     return [html.encode('utf-8')]
