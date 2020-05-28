@@ -1,5 +1,3 @@
-#!/usr/bin/env python3
-
 from cgi import escape
 from os import listdir
 from subprocess import run
